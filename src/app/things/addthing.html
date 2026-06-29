@@ -1,0 +1,10 @@
+<br><br>
+<form [formGroup]="formulario" (submit)="Agregar()">
+    <label for="nombre del objeto">Introduce el nombre del objeto: </label>
+    <input id="nombre_objeto" type="text" formControlName="nombre_objeto" placeholder="Nombre del objeto..." required>
+    <br><br>
+    <label for="lugar del objeto">Introduce el lugar del objeto: </label>
+    <input id="lugar_objeto" type="text" formControlName="lugar_objeto" placeholder="Lugar del objeto..." required>
+    <br><br>
+    <button type="submit">Agregar</button>
+</form>
