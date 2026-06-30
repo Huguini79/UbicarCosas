@@ -26,7 +26,7 @@ export class SeeThings {
     {
         this.objetos = this.objetos.filter(c => c != objeto);
         localStorage.setItem('objetos', JSON.stringify(this.objetos));
-        this.isSearching = false;
+        window.location.reload();
     }
 
     Busqueda(busqueda: string)
