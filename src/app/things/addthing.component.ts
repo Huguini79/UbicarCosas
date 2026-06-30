@@ -21,8 +21,7 @@ export class AddThing
         let Objetos = JSON.parse(localStorage.getItem('objetos') ?? '[]');
         let nombre = this.formulario.get('nombre_objeto')?.value ?? '';
         let lugar = this.formulario.get('lugar_objeto')?.value ?? '';
-        let completo: string = `${nombre} en ${lugar}`;
-        Objetos.push(completo);
+        Objetos.push({objeto_nombre: nombre, objeto_lugar: lugar});
         localStorage.setItem('objetos', JSON.stringify(Objetos));
         this.formulario.reset();
     }

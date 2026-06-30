@@ -8,7 +8,9 @@ import { Component, OnInit } from '@angular/core'
 })
 
 export class SeeThings {
-    objetos = [];
+    objetos: any[] = [];
+    element: any = null;
+    isSearching = false;
     ngOnInit()
     {
         this.cargarObjetos();
@@ -24,5 +26,20 @@ export class SeeThings {
     {
         this.objetos = this.objetos.filter(c => c != objeto);
         localStorage.setItem('objetos', JSON.stringify(this.objetos));
+    }
+
+    Busqueda(busqueda: string)
+    {
+        const encontrado = this.objetos.find(e => e.objeto_nombre.toLowerCase() === busqueda.trim().toLowerCase());
+        if (encontrado)
+        {
+            this.element = encontrado;
+            this.isSearching = true;
+
+        } else
+        {
+            this.element = '';
+            this.isSearching = true;
+        }
     }
 }

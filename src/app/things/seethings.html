@@ -1,9 +1,30 @@
-@for (objeto of objetos; track $index)
+<input type="text" placeholder="Búsqueda..." #busqueda>
+<button (click)="Busqueda(busqueda.value)">Buscar</button>
+<br><br>
+@if(!isSearching)
+{
+    @for (objeto of objetos; track $index)
+    {
+        <div>
+            <br><br>
+            <label>{{ objeto.objeto_nombre }} en {{ objeto.objeto_lugar }}</label>
+            <button (click)="Eliminar(objeto)">Eliminar</button>
+        </div>
+        <br>
+    }
+
+} @else
 {
     <div>
         <br><br>
-        <label>{{ objeto }}</label>
-        <button (click)="Eliminar(objeto)">Eliminar</button>
+        @if(element.objeto_nombre != '')
+        {
+            <label>{{ element.objeto_nombre }} en {{ element.objeto_lugar }}</label>
+            <button (click)="Eliminar(element)">Eliminar</button>
+        
+        } @else
+        {
+            <label>No se ha podido encontrar el elemento</label>
+        }
     </div>
-    <br>
 }
